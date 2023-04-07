@@ -54,7 +54,7 @@ jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                counter 'BRANCH'
+                counter = 'BRANCH'
                 minimum = 0.80
             }
         }
