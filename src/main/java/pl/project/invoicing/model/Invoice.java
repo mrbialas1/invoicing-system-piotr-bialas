@@ -1,6 +1,7 @@
 package pl.project.invoicing.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,4 +12,5 @@ public class Invoice {
   private LocalDateTime date;
   private String creatorName;
   private String destinationCompanyName;
+  //private List<InvoiceEntry> entries;
 }
