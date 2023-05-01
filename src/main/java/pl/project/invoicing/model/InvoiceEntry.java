@@ -1,11 +1,19 @@
 package pl.project.invoicing.model;
 
 import java.math.BigDecimal;
+import lombok.Data;
 
+@Data
 public class InvoiceEntry {
-  private Long id;
+
   private String description;
-  private BigDecimal netPrice;
-  private BigDecimal vatValue = BigDecimal.ZERO;
+  private BigDecimal price;
+  private BigDecimal vatValue;
   private Vat vatRate;
+  public InvoiceEntry(String description, BigDecimal price, BigDecimal vatValue, Vat vatRate) {
+    this.description = description;
+    this.price = price;
+    this.vatValue = vatValue;
+    this.vatRate = vatRate;
+  }
 }

@@ -2,18 +2,17 @@ package pl.project.invoicing.db;
 
 import java.util.List;
 import java.util.Optional;
+import pl.project.invoicing.model.Invoice;
 
 public interface Database {
 
-  Long save();
+ int save(Invoice invoice);
 
-  Optional getById();
+  Optional<Invoice> getById(int id);
 
-  List getAll();
+  List<Invoice> getAll();
 
-  Optional update();
+  void update(int id, Invoice updatedInvoice);
 
-  Optional delete();
-
-  Optional reset();
+  void delete(int id);
 }

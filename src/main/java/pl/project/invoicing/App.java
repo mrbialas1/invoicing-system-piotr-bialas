@@ -4,11 +4,16 @@
 
 package pl.project.invoicing;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
+import pl.project.invoicing.db.Database;
+import pl.project.invoicing.db.memory.InMemoryDatabase;
+import pl.project.invoicing.model.Company;
 import pl.project.invoicing.model.Invoice;
-import pl.project.invoicing.utils.TextUtils;
+import pl.project.invoicing.model.InvoiceEntry;
+import pl.project.invoicing.model.Vat;
+import pl.project.invoicing.service.InvoiceService;
 
 public class App {
 
@@ -18,12 +23,21 @@ public class App {
 
   public static void main(String[] args) {
 
-    System.out.println(new App().getGreeting());
+    Database db = new InMemoryDatabase();
+    InvoiceService service = new InvoiceService(db);
+    Company buyer = new Company("5213861303", "ul. Bukowińska 24d/7 02-703 Warszawa, Polska", "iCode Trust Sp. z o.o");
+    Company seller = new Company("798-522-681", "44-100 Gliwice, Górna 19", "Piotr Bialas Development");
 
-    List<Invoice> invoices = new ArrayList<>();
+    List<InvoiceEntry> products = List.of(new InvoiceEntry("Programming course", BigDecimal.valueOf(10000), BigDecimal.valueOf(2300), Vat.VAT_23));
 
-    Invoice invoice1 = new Invoice(1L, LocalDateTime.now(), "c1", "c2");
+    Invoice invoice = new Invoice(LocalDate.now(), buyer, seller, products);
 
-    String upperCaseText = TextUtils.capitalizeText("test");
+    int id = service.save(invoice);
+
+    service.getById(id).ifPresent(System.out::println);
+
+    System.out.println(service.getAll());
+
+    service.delete(id);
   }
 }
