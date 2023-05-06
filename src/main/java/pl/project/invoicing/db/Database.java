@@ -6,7 +6,7 @@ import pl.project.invoicing.model.Invoice;
 
 public interface Database {
 
- int save(Invoice invoice);
+  int save(Invoice invoice);
 
   Optional<Invoice> getById(int id);
 

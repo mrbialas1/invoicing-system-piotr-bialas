@@ -4,7 +4,9 @@ import pl.project.invoicing.db.Database;
 import pl.project.invoicing.model.Invoice;
 import spock.lang.Specification;
 
-public class InMemoryDatabaseTest extends Specification {
+import static pl.project.invoicing.TestHelpers.invoice
+
+class InMemoryDatabaseTest extends Specification {
     private Database database;
     private List<Invoice> invoices;
 
