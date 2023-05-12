@@ -5,7 +5,7 @@ import pl.project.invoicing.db.memory.InMemoryDatabase
 import pl.project.invoicing.model.Invoice
 import spock.lang.Specification;
 
-import static pl.project.invoicing.TestHelpers.invoice
+import static pl.project.invoicing.helpers.TestHelpers.invoice
 
 class InvoiceServiceIntegrationTest extends Specification {
 

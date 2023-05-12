@@ -1,4 +1,4 @@
-package pl.project.invoicing;
+package pl.project.invoicing.helpers;
 
 import java.time.LocalDate;
 import pl.project.invoicing.model.Company;
@@ -15,7 +15,7 @@ class TestHelpers {
     }
 
     static product(int id) {
-        new InvoiceEntry("Programming course $id", BigDecimal.valueOf(id * 1000), BigDecimal.valueOf(id * 1000 * 0.08), Vat.VAT_8);
+        new InvoiceEntry("Programming course $id", 1, BigDecimal.valueOf(id * 1000), BigDecimal.valueOf(id * 1000 * 0.08), Vat.VAT_8);
     }
 
     static invoice(int id) {
