@@ -3,7 +3,7 @@ package pl.project.invoicing.service
 import pl.project.invoicing.db.Database
 import spock.lang.Specification
 
-import static pl.project.invoicing.helpers.TestHelpers.invoice
+import static pl.project.invoicing.TestHelpers.invoice
 
 class InvoiceServiceUnitTest extends Specification {
 
